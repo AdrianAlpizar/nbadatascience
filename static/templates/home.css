@@ -1,0 +1,41 @@
+body {
+  background-color: white;
+}
+button:focus {
+  outline: 0;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.search-image {
+  height: 280.1px;
+  width: 400px;
+}
+@media (max-width: 576px) {
+  .search-image {
+    height: 265px;
+    width: 345px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .form-inline .form-control {
+    width: 95%;
+  }
+}
+@media (max-width: 576px) {
+  .form-inline .form-control {
+    width: 90%;
+  }
+}
+
+.card-title{
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-control{
+  font-family: 'Poppins', sans-serif;
+}

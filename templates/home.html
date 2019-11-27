@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% block title %}Database{% endblock %} {% block head
+%} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='templates/home.css') }}"
+/>
+{% endblock %}{% block body %}
+<div class="text-center mb-4">
+  <img
+    class="search-image"
+    src="{{ url_for('static', filename='img/ball3.jpg') }}"
+    alt=""
+  />
+</div>
+<!-- Search form -->
+<form method="POST" action="" class="form-inline md-form form-sm mt-0">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input
+    class="form-control form-control-sm ml-3 w-95"
+    type="text"
+    placeholder="'Lebron James'"
+    aria-label="Search"
+    name="search"
+  />
+</form>
+
+<div class="card-columns">
+  <!-- Card -->
+  <div class="card">
+    <!-- Card image -->
+    <div class="view overlay">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static', filename='img/players/Lebron James.png') }}"
+        alt="Card image cap"
+      />
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body">
+      <!-- Title -->
+      <h4 class="card-title">Search by Image</h4>
+      <!-- Text -->
+      <p class="card-text">
+        Upload a picture of a Los Angeles Lakers player and using face recognition it will show their
+        statistics.
+      </p>
+      <!-- Button -->
+      <a href="/imagesearch" class="btn btn-primary"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+  <!-- Card -->
+  
+  <!-- Card -->
+  <!-- Card -->
+  <div class="card">
+    <!-- Card image -->
+    <div class="view overlay">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static', filename='img/search.png') }}"
+        alt="Card image cap"
+      />
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body">
+      <!-- Title -->
+      <h4 class="card-title">NAB Draft Analysis</h4>
+      <!-- Text -->
+      <p class="card-text">
+        Analysis of the winning percentages by draft picks from 1-60 from
+        1996-2014.
+      </p>
+      <!-- Button -->
+      <a href="/draft" class="btn btn-primary"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+  <!-- Card -->
+  <!-- Card -->
+  <div class="card">
+    <!-- Card image -->
+    <div class="view overlay">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static', filename='img/chat.png') }}"
+        alt="Card image cap"
+      />
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body">
+      <!-- Title -->
+      <h4 class="card-title">NBA Chat Room</h4>
+      <!-- Text -->
+      <p class="card-text">
+        A server for NBA enthusiasts to discuss their favorite teams and players.
+      </p>
+      <!-- Button -->
+      <a href="/draft" class="btn btn-primary"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+  <!-- Card -->
+  
+</div>
+{% endblock %}

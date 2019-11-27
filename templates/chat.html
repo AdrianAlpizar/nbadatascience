@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block title %}Chat Room{% endblock %} {% block head %}
+{{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='templates/chat.css') }}"
+/>
+{% endblock %}{% block body %}
+<div class="messages-container">
+<h3 class="no-messages">No message yet..</h3>
+<div class="message_holder"></div>
+
+<!-- Material form grid -->
+<form class="form-wrapper" action="" method="POST">
+  <!-- Grid row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input type="text" class="form-control username" placeholder="Username" />
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-6">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input type="text" class="form-control message" placeholder="Message" />
+      </div>
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <button type="submit" class="btn btn-primary btn-md"><i class="fas fa-arrow-up"></i></button>
+    </div>
+  </div>
+  <!-- Grid row -->
+</form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+<script type="text/javascript">
+  var socket = io.connect("http://" + document.domain + ":" + location.port);
+  socket.on("connect", function() {
+    socket.emit("my event", {
+      data: "User Connected"
+    });
+    var form = $("form").on("submit", function(e) {
+      e.preventDefault();
+      let user_name = $("input.username").val();
+      let user_input = $("input.message").val();
+      socket.emit("my event", {
+        user_name: user_name,
+        message: user_input
+      });
+      $("input.message")
+        .val("")
+        .focus();
+    });
+  });
+  socket.on("my response", function(msg) {
+    console.log(msg);
+    if (typeof msg.user_name !== "undefined") {
+      $("h3").remove();
+      $("div.message_holder").append(
+        '<div><b style="color: #000">' +
+          msg.user_name +
+          "</b> " +
+          msg.message +
+          "</div>"
+      );
+    }
+  });
+</script>
+
+{% endblock %}

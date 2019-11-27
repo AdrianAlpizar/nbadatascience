@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %}Image Search{% endblock %} {% block
+    head %} {{ super() }}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='templates/draft.css') }}"
+    />
+    {% endblock %}{% block body %}
+    
+    <!-- Card -->
+    <div class="card card-cascade wider reverse">
+      <!-- Card image -->
+      <div class="view view-cascade overlay">
+        <img class="card-img-top" src="{{ url }}" alt="Shot Chart" />
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+    
+      <!-- Card content -->
+      <div class="card-body card-body-cascade text-center">
+        <!-- Title -->
+        <h4 class="card-title"><strong>NBA Draft winnings by pick from 1966 to 2014</strong></h4>
+        <!-- Subtitle -->
+        <h6 class="font-weight-bold indigo-text py-2">NBA Draft</h6>
+      </div>
+    </div>
+    <!-- Card -->
+    {% endblock %}
+    

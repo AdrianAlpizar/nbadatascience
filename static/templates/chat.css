@@ -1,0 +1,15 @@
+.messages-container{
+    height: calc(100vh - 205px);
+}
+div.message_holder{
+    height: 92.5%;
+}
+h3.no-messages{
+    position: absolute;
+    color: #ccc;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+.form-control{
+    font-family: 'Poppins', sans-serif;
+  }
